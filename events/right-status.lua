@@ -39,12 +39,12 @@ M.set_date = function()
    local date = wezterm.strftime(' %a %H:%M')
    M.push(date, '', M.colors.date_fg, M.colors.date_bg, true)
 end
-
 M.set_battery = function()
    -- ref: https://wezfurlong.org/wezterm/config/lua/wezterm/battery_info.html
    local discharging_icons =
-      { '', '', '', '', '', '', '', '', '', '' }
-   local charging_icons = { '', '', '', '', '', '', '', '', '', '' }
+      { '󰁺', '󰁻', '󰁼', '󰁽', '󰁿', '󰂀', '󰂁', '󰂁', '󰂂', '󰁹' }
+   local charging_icons =
+      { '󰢜', '󰂆', '󰂇', '󰂈', '󰢝', '󰂉', '󰢞', '󰂊', '󰂋', '󰂅' }
 
    local charge = ''
    local icon = ''

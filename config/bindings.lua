@@ -7,6 +7,7 @@ local mod = {}
 if platform.is_mac then
    mod.SUPER = 'SUPER'
    mod.SUPER_REV = 'SUPER|CTRL'
+   mod.CTRL_SHIFT = 'CTRL|SHIFT'
 elseif platform.is_win then
    mod.SUPER = 'ALT' -- to not conflict with Windows key shortcuts
    mod.SUPER_REV = 'ALT|CTRL'
@@ -14,16 +15,16 @@ end
 
 local keys = {
    -- misc/useful --
-   { key = 'F1', mods = 'NONE', action = 'ActivateCopyMode' },
-   { key = 'F2', mods = 'NONE', action = act.ActivateCommandPalette },
+   { key = 'v', mods = mod.CTRL_SHIFT, action = 'ActivateCopyMode' },
+   { key = '/', mods = mod.CTRL_SHIFT, action = act.ActivateCommandPalette },
    { key = 'F3', mods = 'NONE', action = act.ShowLauncher },
    { key = 'F4', mods = 'NONE', action = act.ShowTabNavigator },
    { key = 'F12', mods = 'NONE', action = act.ShowDebugOverlay },
    { key = 'f', mods = mod.SUPER, action = act.Search({ CaseInSensitiveString = '' }) },
 
    -- copy/paste --
-   { key = 'c', mods = 'CTRL|SHIFT', action = act.CopyTo('Clipboard') },
-   { key = 'v', mods = 'CTRL|SHIFT', action = act.PasteFrom('Clipboard') },
+   { key = 'c', mods = mod.CTRL_SHIFT, action = act.CopyTo('Clipboard') },
+   { key = 'v', mods = mod.CTRL_SHIFT, action = act.PasteFrom('Clipboard') },
 
    -- tabs --
    -- tabs: spawn+close
@@ -116,7 +117,7 @@ local mouse_bindings = {
 
 return {
    disable_default_key_bindings = true,
-   leader = { key = 'Space', mods = 'CTRL|SHIFT' },
+   leader = { key = 'Space', mods = mod.CTRL_SHIFT },
    keys = keys,
    key_tables = key_tables,
    mouse_bindings = mouse_bindings,
